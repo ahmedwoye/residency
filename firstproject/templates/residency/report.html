@@ -1,0 +1,150 @@
+{% extends 'residency/main.html' %}
+
+
+
+{% block content %}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Dashboard</li>
+			</ol>
+		</div><!--/.row-->
+		
+
+ 
+<div class="form-group">
+    <div class="col-md-9 col-md-offset-3">
+        <div id="messages"></div>
+    </div>   
+<div class="form-group">
+     <div class="col-xs-8">
+<label for="exampleInputEmail1">Patient</label> 
+
+
+
+
+<select name="p_name" id="MainPlaceHolder1_titlelist" class="form-control"  required  >
+<sql:query dataSource="${webappDataSource}" var="result" >
+select  PATIENT_NAME, PATIENT_INST_ID from patient_data
+</sql:query> 
+ <c:forEach var="row" items="${result.rows}">
+ <option value=${row.PATIENT_INST_ID}>${row.PATIENT_NAME} <span class="tab-space">[ ${row.PATIENT_INST_ID}]</span></option>
+ </c:forEach>
+</select>
+</div>
+</div> 
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Lab No</label><span id="MainPlaceHolder1_RequiredFieldValidator17" style="color:Red;display:none;">Please enter Lab No</span>
+&nbsp;<input name="lab_no" type="text"   id="lab_no" class="form-control" placeholder="Enter Lab No"  required />
+ </div>
+</div>
+
+
+ <div class="form-group">
+ <div class="col-xs-8">
+<label for="exampleInputEmail1">Sample Collected</label><span id="MainPlaceHolder1_RequiredFieldValidator17" style="color:Red;display:none;">Please enter Hospital Name</span>
+&nbsp;<input name="samplecollected" type="text"   id="samplecollected" class="form-control" placeholder="Enter Sample Collected"  required />
+ </div>
+</div>
+
+ 
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Request</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="request_comment" type="LH"   id="request_comment" class="form-control" placeholder="Request" required/>
+ 
+</div>
+</div>
+
+
+
+
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Hospital Name</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="hospital_name" type="LH"   id="hospital_name" class="form-control" placeholder="Enter Hospital Name" required/>
+ 
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">LH</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="lh" type="LH"   id="lh" class="form-control" placeholder="LH" required/>
+ </div>
+
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1"> FSH</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="fsh" type="LH"   id="FSH" class="form-control" placeholder="FSH" required/>
+ 
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Prolactin</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="prolactin" type="LH"   id="prolactin" class="form-control" placeholder="Prolactin" required/>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Progesterone</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="progesterone" type="LH"   id="progesterone" class="form-control" placeholder="Progesterone" required/>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Estradol</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="estradol" type="LH"   id="estradol" class="form-control" placeholder="Estradiol" required/>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Testosterone</label><span id="MainPlaceHolder1_RequiredFieldValidator24" style="color:Red;display:none;">Enter LH</span>
+&nbsp;<input name="testosterone" type="LH"   id="testosterone" class="form-control" placeholder="Testosterone" required/>
+</div>
+</div>
+
+
+<div class="form-group">
+<div class="col-xs-8">
+<label for="exampleInputEmail1">Comment</label><span id="MainPlaceHolder1_RequiredFieldValidator17" style="color:Red;display:none;">Please enter Hospital Name</span>
+&nbsp;<textarea name="comment_one"   id="comment_one" class="form-control" placeholder="EnterComment"  required >  </textarea> 
+</div>
+</div>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-5 col-sm-offset-1">
+          <div class="pull-center">
+       <a href="/goldstandard_medical_ng/MedicalLabPage.jsp" 
+                    class="btn btn-danger">   Cancel</a>
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+</div>
+</div>
+{% endblock %}
